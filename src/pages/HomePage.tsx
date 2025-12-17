@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, ArrowRight, Sparkles, Users, Target, Zap } from "lucide-react";
+import { Briefcase, ArrowRight, Sparkles, Users, Target, Zap, Download } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 
@@ -142,6 +142,19 @@ export function HomePage({ navigate }: HomePageProps) {
                 <p className="text-muted-foreground text-sm">{feature.description}</p>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Install App CTA */}
+          <motion.div variants={itemVariants} className="mt-16">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => navigate("install")}
+              className="gap-2"
+            >
+              <Download className="w-5 h-5" />
+              Install Mobile App
+            </Button>
           </motion.div>
         </motion.div>
       </div>
