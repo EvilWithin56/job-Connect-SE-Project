@@ -14,6 +14,7 @@ import { PostJobPage } from "@/pages/PostJobPage";
 import { ApplyJobPage } from "@/pages/ApplyJobPage";
 import { ViewApplicantsPage } from "@/pages/ViewApplicantsPage";
 import { ChatPage } from "@/pages/ChatPage";
+import { InstallPage } from "@/pages/InstallPage";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +27,8 @@ type PageName =
   | "postJob" 
   | "applyJob" 
   | "viewApplicants" 
-  | "chat";
+  | "chat"
+  | "install";
 
 const App = () => {
   const [page, setPage] = useState<PageName>("home");
@@ -58,6 +60,8 @@ const App = () => {
         return <ViewApplicantsPage navigate={navigate} params={params as { jobId: string }} />;
       case "chat":
         return <ChatPage navigate={navigate} params={params as { appId: string }} />;
+      case "install":
+        return <InstallPage navigate={navigate} />;
       default:
         return <HomePage navigate={navigate} />;
     }
